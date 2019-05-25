@@ -5,13 +5,15 @@ var shortId = require('shortid');
 
 console.log("server started on port " + port);
 
-var RandomNum = Math.floor(Math.random() * 100);
-console.log(RandomNum);
+var RanNum = Math.floor(Math.random() * 100);
+console.log(RanNum);
 
 var playerNumConnected = 0;
-var playerNumReady;
+var playerNumReady = 0;
 
 var isPlaying = false;
+
+var isWinning = false;
 
 /*port.listen(3000, function () {
     console.log("server started");
@@ -46,11 +48,72 @@ io.on('connection',function(socket){
 
     });
     socket.on('LogOut', function (data){
+        
+        if(data.played == false){
+            playerNumConnected--;
 
+        }else if(data.played == true){
+            playerNumReady--;
+            playerNumConnected--;
+        } 
 
 
 
 
     });
+
+    socket.On('Guess', function(data){
+
+        playerNumReady++;
+
+        
+
+        if(data.GuessNum == RanNum){
+
+            isWinning = true;
+
+
+
+        }else if(data.GuessNum < RanNum&&!isWinning)
+        {
+            var result = {text:"Less"}
+            DebugLog(data.playerMane + "" + result);
+        }
+        else if(data.GuessNum > RanNum&&!isWinning)
+        {
+            var result = {text:"More"}
+
+            DebugLog(data.playerMane + "" + result);
+
+        }
+
+        playerHere = {count:playerNumReady,id:data.id,name:data.name,myGuess:data.GuessNum,result}
+
+        if(!isWinning){
+            socket.emit("getValue",playerHere);
+
+            socket.broadcast.emit("SomeOneGuess", playerHere);
+        }
+
+
+        if(playerNumReady == playerNumConnected&&!isWinning){
+            socket.emit('show');
+            socket.broadcast.emit('show');
+        }
+        if(isWinning){
+            socket.emit("I Am Winner",playerHere);
+            socket.broadcast.emit("I Lose",playerHere);
+            isWinning = false;
+            RanNum = Math.floor(Math.random() * 100);
+            console.log(RanNum);
+            playerNumReady = 0;
+
+        }
+
+
+
+    });
+
+
 
 });

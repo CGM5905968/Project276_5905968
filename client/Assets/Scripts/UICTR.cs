@@ -41,6 +41,7 @@ public class UICTR : MonoBehaviour
     public Text winName;
     public Text answer;
 
+    public bool logIn = false;
 
     //public bool isPlayed = false;
 
@@ -52,7 +53,7 @@ public class UICTR : MonoBehaviour
     {
         network = GameObject.Find("Network").GetComponent<Network>();
         serverStatus = GameObject.Find("ServerStatus").GetComponent<Text>();
-
+        logIn = false;
     }
 
     // Update is called once per frame
@@ -63,10 +64,23 @@ public class UICTR : MonoBehaviour
 
     public void LogInButton()
     {
-        network.LogInToServer(playerInputName.text);
+        logIn = true;
+
+    network.LogInToServer(playerInputName.text);
+
     }
     public void LogOutButton()
     {
-        network.LogOut(gameCTR.isPlayed);
+
+        if (logIn)
+        {
+            network.LogOut(gameCTR.isPlayed);
+            gameCTR.isLogin = true;
+            logIn = false;
+        }
+        else if (!logIn)
+        {
+            Application.Quit();
+        }
     }
 }

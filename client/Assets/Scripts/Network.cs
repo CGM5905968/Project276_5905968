@@ -13,6 +13,8 @@ public class Network : MonoBehaviour
 
     JSONObject JSONobject;
 
+
+
     void Start()
     {
         socket = GetComponent<SocketIOComponent>();
@@ -22,6 +24,11 @@ public class Network : MonoBehaviour
         socket.On("Other Player Connected", OtherConnected);
 
         socket.On("I Login", OnLogIn);
+
+        socket.On("getValue", BackAnswer);
+        socket.On("SomeOneGuess", OtherGuess);
+
+        socket.On("show", ShowRound);
 
 
     }
@@ -57,7 +64,16 @@ public class Network : MonoBehaviour
     }
     public void LogOut(bool data)
     {
-        socket.Emit("LogOut");
+        JSONobject = new JSONObject(JSONObject.Type.OBJECT);
+        JSONobject.AddField("played", data);
+
+        uiCTR.playerID.text = "---";
+        uiCTR.playerName.text = "---";
+
+
+
+
+        socket.Emit("LogOut", JSONobject);
     }
 
     // Update is called once per frame
@@ -73,6 +89,50 @@ public class Network : MonoBehaviour
 
         uiCTR.playerNumConnected.text = "Current Playing: " + JSONobject["playerConnected"].n;
 
+
+    }
+    public void SendGuess(int data)
+    {
+        gameCTR.myGuessText.text = "My Guess " + data.ToString();
+        gameCTR.lessOrMoreText.text = "Please Wait...";
+
+        JSONobject = new JSONObject(JSONObject.Type.OBJECT);
+        JSONobject.AddField("GuessNum", data);
+        JSONobject.AddField("playerName", uiCTR.playerName.text);
+
+        socket.Emit("Guess", JSONobject);
+        //gameCTR.isPlayed = true;
+
+        print("send value");
+        Debug.Log(uiCTR.playerName.text);
+
+    }
+
+    void BackAnswer(SocketIOEvent obj)
+    {
+        JSONobject = obj.data;
+
+        gameCTR.backID = JSONobject["id"].str;
+        gameCTR.backName = JSONobject["name"].str;
+        gameCTR.backResult = JSONobject["result"].str;
+        gameCTR.backNum = (int)JSONobject["myGuess"].n;
+        gameCTR.readyNumText.text = JSONobject["count"].str + "Player Is Ready";
+
+
+
+    }
+    void OtherGuess(SocketIOEvent obj)
+    {
+        JSONobject = obj.data;
+
+        gameCTR.readyNumText.text = JSONobject["count"].str + "Player Is Ready";
+
+    }
+    void ShowRound(SocketIOEvent obj)
+    {
+        gameCTR.readyNumText.text = "Next Round";
+
+        gameCTR.ShowRound();
 
     }
 }
