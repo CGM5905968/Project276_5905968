@@ -18,7 +18,7 @@ public class Network : MonoBehaviour
         socket = GetComponent<SocketIOComponent>();
         uiCTR = GameObject.Find("UICTR").GetComponent<UICTR>();
 
-        socket.On("Connected", OnConnected);
+        socket.On("Connect To Server", OnConnected);
         socket.On("Other Player Connected", OtherConnected);
 
         socket.On("I Login", OnLogIn);
