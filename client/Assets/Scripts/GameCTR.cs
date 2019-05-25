@@ -91,7 +91,7 @@ public class GameCTR : MonoBehaviour
 
 
 
-    void GuessButton()
+    public void GuessButton()
     {
         if (!isPlayed)
         {
