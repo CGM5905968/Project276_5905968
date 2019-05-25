@@ -62,7 +62,7 @@ io.on('connection',function(socket){
 
     });
 
-    socket.On('Guess', function(data){
+    socket.on('Guess', function(data){
 
         playerNumReady++;
 
