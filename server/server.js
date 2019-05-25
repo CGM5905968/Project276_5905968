@@ -34,7 +34,7 @@ io.on('connection',function(socket){
 
             var thisPlayerId = shortId.generate();
 
-            playerID = {id:thisPlayerId,name:data.plyerName,playerConnected:playerNumConnected}
+            playerID = {id:thisPlayerId,name:data.playerName,playerConnected:playerNumConnected}
 
             console.log("New Player! " + playerID);
             console.log(playerNumConnected + " player has connect");

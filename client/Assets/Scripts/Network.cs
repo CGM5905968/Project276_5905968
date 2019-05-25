@@ -49,8 +49,9 @@ public class Network : MonoBehaviour
 
         JSONobject = obj.data;
 
-        uiCTR.playerID.text = JSONobject["id"].str;
-        uiCTR.playerName.text = JSONobject["name"].str;
+        uiCTR.playerID.text = ""+JSONobject["id"].str;
+        uiCTR.playerName.text = ""+JSONobject["name"].str;
+        Debug.Log(JSONobject["name"]);
 
         uiCTR.playerNumConnected.text = "Current Playing: " + JSONobject["playerConnected"].n; 
     }
