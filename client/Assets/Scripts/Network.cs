@@ -119,13 +119,13 @@ public class Network : MonoBehaviour
 
         gameCTR.backID = JSONobject["id"].str;
         gameCTR.backName = JSONobject["name"].str;
-        gameCTR.backResult = JSONobject["result"].str;
+        gameCTR.backResult = JSONobject["result1"].str;
         gameCTR.backNum = (int)JSONobject["myGuess"].n;
         gameCTR.readyNumText.text = JSONobject["count"].str + "Player Is Ready";
 
         Debug.Log(gameCTR.backName + gameCTR.readyNumText + gameCTR.backID);
         //Debug.Log(gameCTR.backResult);
-        Debug.Log(JSONobject["result"].str);
+        Debug.Log(JSONobject["result1"].str);
 
 
     }
