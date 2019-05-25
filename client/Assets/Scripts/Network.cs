@@ -55,6 +55,10 @@ public class Network : MonoBehaviour
 
         uiCTR.playerNumConnected.text = "Current Playing: " + JSONobject["playerConnected"].n; 
     }
+    public void LogOut()
+    {
+        socket.Emit("LogOut");
+    }
 
     // Update is called once per frame
     void Update()

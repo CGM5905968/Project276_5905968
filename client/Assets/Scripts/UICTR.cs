@@ -61,4 +61,8 @@ public class UICTR : MonoBehaviour
     {
         network.LogInToServer(playerInputName.text);
     }
+    public void LogOutButton()
+    {
+        network.LogOut();
+    }
 }

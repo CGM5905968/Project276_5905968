@@ -23,6 +23,8 @@ public class GameCTR : MonoBehaviour
 
     public bool isGameSetUp = false;
 
+    public bool isPlayed;
+
     public bool isPlaying = false;
 
     public bool isLogin = false;
@@ -37,6 +39,8 @@ public class GameCTR : MonoBehaviour
         uiCTR = GameObject.Find("UICTR").GetComponent<UICTR>();
 
         isLogin = true;
+        playingCTR.SetActive(false);
+        uiCTR.endGameCTR.SetActive(false);
 
         isPlaying = false;
         isGameSetUp = false;
