@@ -36,7 +36,7 @@ io.on('connection',function(socket){
 
             playerID = {id:thisPlayerId,name:data.playerName,playerConnected:playerNumConnected}
 
-            console.log("New Player! " + playerID);
+            console.log("New Player! " + data.playerName);
             console.log(playerNumConnected + " player has connect");
 
             socket.emit('I Login', playerID);
