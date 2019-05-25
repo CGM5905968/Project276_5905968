@@ -77,13 +77,13 @@ io.on('connection',function(socket){
         }else if(data.GuessNum < RanNum&&!isWinning)
         {
             var result = {text:"Less"}
-            console.log(data.playerName + "" + result);
+            console.log(data.playerName + "Guess" + result);
         }
         else if(data.GuessNum > RanNum&&!isWinning)
         {
             var result = {text:"More"}
 
-            console.log(data.playerName + "" + result);
+            console.log(data.playerName + "Guess" + result);
 
         }
 

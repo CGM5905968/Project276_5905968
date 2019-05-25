@@ -101,7 +101,9 @@ public class Network : MonoBehaviour
 
         JSONobject = new JSONObject(JSONObject.Type.OBJECT);
         JSONobject.AddField("GuessNum", data);
-        JSONobject.AddField("playerName", uiCTR.playerName.text);
+        JSONobject.AddField("name", uiCTR.playerName.text);
+        JSONobject.AddField("id", uiCTR.playerID.text);
+
 
         socket.Emit("Guess", JSONobject);
         //gameCTR.isPlayed = true;
@@ -121,6 +123,8 @@ public class Network : MonoBehaviour
         gameCTR.backNum = (int)JSONobject["myGuess"].n;
         gameCTR.readyNumText.text = JSONobject["count"].str + "Player Is Ready";
 
+        Debug.Log(gameCTR.backName + gameCTR.readyNumText + gameCTR.backID);
+        Debug.Log(gameCTR.backResult);
 
 
     }
