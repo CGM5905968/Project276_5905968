@@ -77,7 +77,7 @@ io.on('connection',function(socket){
         }else if(data.GuessNum < RanNum&&!isWinning)
         {
             var result = {text:"Less"}
-            console.Log(data.playerName + "" + result);
+            console.log(data.playerName + "" + result);
         }
         else if(data.GuessNum > RanNum&&!isWinning)
         {
