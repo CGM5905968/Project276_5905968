@@ -1,8 +1,7 @@
-var app = require('express')();
-var server = require('http').Server(app);
+var port = process.env.PORT || 3000;
 var io = require('socket.io')(port);
 var shortId = require('shortid');
-var port = process.env.PORT || 3000;
+
 
 console.log("server started on port " + port);
 
@@ -13,6 +12,11 @@ var playerNumConnected;
 var playerNumReady;
 
 var isPlaying = false;
+
+port.listen(3000, function () {
+    console.log("server started");
+    
+});
 
 
 io.on("connection",function(socket){ 
