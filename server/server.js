@@ -71,24 +71,24 @@ io.on('connection',function(socket){
         if(data.GuessNum == RanNum){
 
             isWinning = true;
-            var result1 = {text:"win"}
+            var result1 = "win";
 
 
 
         }else if(data.GuessNum < RanNum&&!isWinning)
         {
-            var result1 = {text:"Less"}
+            var result1 = "Less";
             console.log(data.playerName + "Guess" + result1);
         }
         else if(data.GuessNum > RanNum&&!isWinning)
         {
-            var result1 = {text:"More"}
+            var result1 = "More";
 
             console.log(data.playerName + "Guess" + result1);
 
         }
 
-        playerHere = {count:playerNumReady,id:data.id,name:data.name,myGuess:data.GuessNum,result:result1}
+        playerHere = {count:playerNumReady,id:data.id,name:data.name,myGuess:data.GuessNum,result1}
         console.log(playerHere);
 
         if(!isWinning){
