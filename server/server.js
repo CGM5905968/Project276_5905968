@@ -21,6 +21,8 @@ var isPlaying = false;
 
 io.on('connection',function(socket){ 
 
+    console.log("Some One Connect to Server");
+
     //playerNumConnected++;
 
     socket.emit('Connect To Server');
