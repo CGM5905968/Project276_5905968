@@ -66,7 +66,7 @@ io.on('connection',function(socket){
 
         playerNumReady++;
 
-        
+        console.log("Guess Here");
 
         if(data.GuessNum == RanNum){
 
@@ -77,36 +77,43 @@ io.on('connection',function(socket){
         }else if(data.GuessNum < RanNum&&!isWinning)
         {
             var result = {text:"Less"}
-            DebugLog(data.playerMane + "" + result);
+            console.Log(data.playerMane + "" + result);
         }
         else if(data.GuessNum > RanNum&&!isWinning)
         {
             var result = {text:"More"}
 
-            DebugLog(data.playerMane + "" + result);
+            console.log(data.playerMane + "" + result);
 
         }
 
         playerHere = {count:playerNumReady,id:data.id,name:data.name,myGuess:data.GuessNum,result}
+        console.log(playerHere);
 
         if(!isWinning){
             socket.emit("getValue",playerHere);
 
             socket.broadcast.emit("SomeOneGuess", playerHere);
+            console.log("Some One Guess!");
         }
 
 
         if(playerNumReady == playerNumConnected&&!isWinning){
             socket.emit('show');
             socket.broadcast.emit('show');
+
+            console.log("Round End!!");
         }
         if(isWinning){
-            socket.emit("I Am Winner",playerHere);
-            socket.broadcast.emit("I Lose",playerHere);
+            var anwser = RanNum;
+            socket.emit("I Am Winner",playerHere, anwser);
+            socket.broadcast.emit("I Lose",playerHere, anwser);
             isWinning = false;
+            console.log("This Player " + playerHere.data.name + " Is The Winner");
             RanNum = Math.floor(Math.random() * 100);
             console.log(RanNum);
             playerNumReady = 0;
+
 
         }
 

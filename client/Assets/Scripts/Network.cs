@@ -30,6 +30,9 @@ public class Network : MonoBehaviour
 
         socket.On("show", ShowRound);
 
+        socket.On("I Am Winner", IWin);
+        socket.On("I Lose", ILose);
+
 
     }
 
@@ -133,6 +136,29 @@ public class Network : MonoBehaviour
         gameCTR.readyNumText.text = "Next Round";
 
         gameCTR.ShowRound();
+
+    }
+
+    void IWin(SocketIOEvent obj)
+    {
+
+        JSONobject = obj.data;
+
+        gameCTR.playingCTR.SetActive(false);
+        uiCTR.endGameCTR.SetActive(true);
+        uiCTR.winName.text = "I AM THE WINNER";
+        uiCTR.answer.text = JSONobject["answer"].str;
+
+
+    }
+    void ILose(SocketIOEvent obj)
+    {
+        JSONobject = obj.data;
+
+        gameCTR.playingCTR.SetActive(false);
+        uiCTR.endGameCTR.SetActive(true);
+
+
 
     }
 }
