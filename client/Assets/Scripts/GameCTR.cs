@@ -102,7 +102,7 @@ public class GameCTR : MonoBehaviour
 
     public void ShowRound()
     {
-        lessOrMoreText.text = "Answer " + backResult;
+        lessOrMoreText.text = backResult;
         Debug.Log(backResult);
         myGuessText.text = "Next Geuss!";
         isPlayed = false;

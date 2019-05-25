@@ -87,7 +87,7 @@ io.on('connection',function(socket){
 
         }
 
-        playerHere = {count:playerNumReady,id:data.id,name:data.name,myGuess:data.GuessNum,result}
+        playerHere = {count:playerNumReady,id:data.id,name:data.name,myGuess:data.GuessNum,result:result}
         console.log(playerHere);
 
         if(!isWinning){
@@ -103,7 +103,7 @@ io.on('connection',function(socket){
             socket.broadcast.emit('show');
             playerNumReady = 0;
 
-            console.log("Round End!!");
+            console.log("Round End!!"+ playerNumReady);
         }
         if(isWinning){
             var anwser = RanNum;

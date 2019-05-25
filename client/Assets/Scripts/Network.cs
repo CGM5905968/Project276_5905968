@@ -124,7 +124,8 @@ public class Network : MonoBehaviour
         gameCTR.readyNumText.text = JSONobject["count"].str + "Player Is Ready";
 
         Debug.Log(gameCTR.backName + gameCTR.readyNumText + gameCTR.backID);
-        Debug.Log(gameCTR.backResult);
+        //Debug.Log(gameCTR.backResult);
+        Debug.Log(JSONobject["result"].str);
 
 
     }
