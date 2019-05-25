@@ -779,9 +779,15 @@ MonoBehaviour:
   readyNumText: {fileID: 879269698}
   playerNumText: {fileID: 1837750107}
   inPutNumBox: {fileID: 1599895510}
+  inPutGuessNum: {fileID: 3549963}
   sendButton: {fileID: 262146581}
   myGuessText: {fileID: 1320619346}
   lessOrMoreText: {fileID: 841784285}
+  backName: 
+  backID: 
+  backResult: 
+  backNum: 0
+  playerCount: 0
   isGameSetUp: 0
   isPlayed: 0
   isPlaying: 0
@@ -1785,6 +1791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   network: {fileID: 1970399512}
+  gameCTR: {fileID: 0}
   playerNumConnected: {fileID: 1837750107}
   serverStatus: {fileID: 386704988}
   playerID: {fileID: 651835450}
@@ -1798,6 +1805,7 @@ MonoBehaviour:
   endGameCTR: {fileID: 2081556646}
   winName: {fileID: 1017725029}
   answer: {fileID: 1226658681}
+  logIn: 0
 --- !u!4 &1281254536
 Transform:
   m_ObjectHideFlags: 0
@@ -1827,7 +1835,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1306212547
 RectTransform:
   m_ObjectHideFlags: 0
