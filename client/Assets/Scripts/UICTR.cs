@@ -74,9 +74,10 @@ public class UICTR : MonoBehaviour
 
         if (logIn)
         {
+            logIn = false;
             network.LogOut(gameCTR.isPlayed);
             gameCTR.isLogin = true;
-            logIn = false;
+
         }
         else if (!logIn)
         {
