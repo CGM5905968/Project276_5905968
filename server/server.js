@@ -101,6 +101,7 @@ io.on('connection',function(socket){
         if(playerNumReady == playerNumConnected&&!isWinning){
             socket.emit('show');
             socket.broadcast.emit('show');
+            playerNumReady = 0;
 
             console.log("Round End!!");
         }
