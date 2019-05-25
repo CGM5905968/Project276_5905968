@@ -19,7 +19,7 @@ var isPlaying = false;
 });*/
 
 
-io.on("connection",function(socket){ 
+io.on('connection',function(socket){ 
 
     //playerNumConnected++;
 
