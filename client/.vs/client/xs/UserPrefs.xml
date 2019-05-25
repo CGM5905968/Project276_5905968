@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{A2859A56-AB4A-51F9-60BB-1B6FC96E8C70}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Network.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UICTR.cs">
     <Files>
-      <File FileName="Assets/Scripts/Network.cs" Line="157" Column="42" />
+      <File FileName="Assets/Scripts/Network.cs" Line="128" Column="38" />
       <File FileName="Assets/Scripts/GameCTR.cs" Line="36" Column="21" NotebookId="1" />
-      <File FileName="Assets/Scripts/UICTR.cs" Line="79" Column="27" NotebookId="1" />
+      <File FileName="Assets/Scripts/UICTR.cs" Line="77" Column="27" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
