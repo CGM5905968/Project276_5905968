@@ -13,10 +13,10 @@ var playerNumReady;
 
 var isPlaying = false;
 
-port.listen(3000, function () {
+/*port.listen(3000, function () {
     console.log("server started");
     
-});
+});*/
 
 
 io.on("connection",function(socket){ 
