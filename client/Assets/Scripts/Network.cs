@@ -55,7 +55,7 @@ public class Network : MonoBehaviour
 
         uiCTR.playerNumConnected.text = "Current Playing: " + JSONobject["playerConnected"].n; 
     }
-    public void LogOut()
+    public void LogOut(bool data)
     {
         socket.Emit("LogOut");
     }

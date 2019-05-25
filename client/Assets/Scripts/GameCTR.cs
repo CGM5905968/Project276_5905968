@@ -23,7 +23,7 @@ public class GameCTR : MonoBehaviour
 
     public bool isGameSetUp = false;
 
-    public bool isPlayed;
+    public bool isPlayed = false;
 
     public bool isPlaying = false;
 

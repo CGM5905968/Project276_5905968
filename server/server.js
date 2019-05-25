@@ -8,7 +8,7 @@ console.log("server started on port " + port);
 var RandomNum = Math.floor(Math.random() * 100);
 console.log(RandomNum);
 
-var playerNumConnected;
+var playerNumConnected = 0;
 var playerNumReady;
 
 var isPlaying = false;
@@ -43,6 +43,13 @@ io.on('connection',function(socket){
 
             socket.broadcast.emit('Other Player Connected', playerID);
         }
+
+    });
+    socket.on('LogOut', function (data){
+
+
+
+
 
     });
 

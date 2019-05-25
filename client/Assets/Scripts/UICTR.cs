@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UICTR : MonoBehaviour
 {
     public Network network;
+    public GameCTR gameCTR;
 
     //Status
     public Text playerNumConnected;
@@ -41,6 +42,9 @@ public class UICTR : MonoBehaviour
     public Text answer;
 
 
+    //public bool isPlayed = false;
+
+
 
 
     // Start is called before the first frame update
@@ -63,6 +67,6 @@ public class UICTR : MonoBehaviour
     }
     public void LogOutButton()
     {
-        network.LogOut();
+        network.LogOut(gameCTR.isPlayed);
     }
 }
