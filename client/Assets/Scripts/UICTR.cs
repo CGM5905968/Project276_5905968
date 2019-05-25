@@ -84,4 +84,10 @@ public class UICTR : MonoBehaviour
             Application.Quit();
         }
     }
+    public void ReButton()
+    {
+        endGameCTR.SetActive(false);
+        gameCTR.playingCTR.SetActive(true);
+
+    }
 }

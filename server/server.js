@@ -111,7 +111,7 @@ io.on('connection',function(socket){
             socket.emit("I Am Winner",playerHere, anwser);
             socket.broadcast.emit("I Lose",playerHere, anwser);
             isWinning = false;
-            console.log("This Player " + data.playerName + " Is The Winner");
+            console.log("This Player " + data.name + " Is The Winner");
             RanNum = Math.floor(Math.random() * 100);
             console.log(RanNum);
             playerNumReady = 0;

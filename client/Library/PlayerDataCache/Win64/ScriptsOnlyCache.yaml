@@ -742,4 +742,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: /Users/Siras/CGM276/Project276_5905968/client/Bulid1/client.exe
+  playerPath: /Users/Siras/CGM276/Project276_5905968/client/Build1/client.exe

@@ -160,6 +160,8 @@ public class Network : MonoBehaviour
     {
         JSONobject = obj.data;
 
+        uiCTR.winName.text = JSONobject["name"].str;
+        uiCTR.answer.text = JSONobject["answer"].str;
         gameCTR.playingCTR.SetActive(false);
         uiCTR.endGameCTR.SetActive(true);
 
